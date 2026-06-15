@@ -512,21 +512,23 @@ def 生成汉化脚本() -> str:
       }}
       jieGuo = fanYiCiDian.get(jieGuo) || jieGuo;
     }}
-    let houChuLi = (jieGuo || zhuTi)
-        .replaceAll("Select one of the three options. ", "请选择三种模式之一。")
-        .replaceAll("Select one of the three options.", "请选择三种模式之一。")
-        .replaceAll(" and permissions can be further customized below.", "和权限可在下方继续自定义。")
-        .replaceAll("智能体设置 and permissions can be further customized below.", "智能体设置和权限可在下方继续自定义。")
-        .replaceAll("Select one of the three options. 智能体设置和权限可在下方继续自定义。", "请选择三种模式之一。智能体设置和权限可在下方继续自定义。")
-        .replaceAll("请选择三种模式之一. 智能体设置和权限可在下方继续自定义。", "请选择三种模式之一。智能体设置和权限可在下方继续自定义。")
-        .replaceAll("Note that this may increase ", "请注意，这可能会增加 ")
-        .replaceAll(" tool usage.", " 的工具使用频率。")
-        .replaceAll(" never asks for confirmation before executing terminal commands (except those in the ", " 在执行终端命令之前从不请求确认（除了位于 ")
-        .replaceAll(" always asks for confirmation before executing terminal commands (except those in the ", " 在执行终端命令之前始终请求确认（除了位于 ")
-        .replaceAll(" List)", " 列表中的命令）")
-        .replaceAll(" list)", " 列表中的命令）")
-        .replaceAll(" are packaged collections of skills and MCPs to help the ", " 是将技能和 MCP 打包的集合，用于帮助 ")
-        .replaceAll(" in Antigravity IDE work with Google developer products. You can always change your choices in ", " 在 Antigravity IDE 中使用 Google 开发者产品。你随时可以前往 ")
+    let houChuLi = jieGuo || zhuTi;
+    const zhengZeTiHuan = [
+        [/Select one of the three options\.?(?:\s*智能体设置和权限可在下方继续自定义。)?/gi, "请选择三种模式之一。智能体设置和权限可在下方继续自定义。"],
+        [/(?:智能体)?(?:设置)?(?:and\s*)?permissions can be further customized below\.?/gi, "和权限可在下方继续自定义。"],
+        [/Note that this may increase/gi, "请注意，这可能会增加"],
+        [/tool usage\.?/gi, "的工具使用频率。"],
+        [/never asks for confirmation before executing terminal commands \(except those in the/gi, "在执行终端命令前从不请求确认（除了位于"],
+        [/always asks for confirmation before executing terminal commands \(except those in the/gi, "在执行终端命令前始终请求确认（除了位于"],
+        [/List\)/gi, "列表中的命令）"],
+        [/list\)/gi, "列表中的命令）"],
+        [/are packaged collections of skills and MCPs to help the/gi, "是将技能和 MCP 打包的集合，用于帮助"],
+        [/in Antigravity IDE work with Google developer products[\s\S]*?You can always change your choices in/gi, "在 Antigravity IDE 中使用 Google 开发者产品。你随时可以在"]
+    ];
+    for (const [zz, th] of zhengZeTiHuan) {{
+        houChuLi = houChuLi.replace(zz, th);
+    }}
+    houChuLi = houChuLi
         .replaceAll("拒绝 list", "拒绝列表")
         .replaceAll("允许 list", "允许列表")
         .replaceAll("This provides the 智能体 with the maximum ability to operate over long periods without intervention, but also has the highest risk of an 智能体 executing an unsafe terminal command.", "这让智能体具备最长时间自主运行的最大能力，但也带来最高风险，可能执行不安全的终端命令。")
