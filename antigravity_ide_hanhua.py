@@ -468,7 +468,10 @@ def 生成汉化脚本() -> str:
     [/^(\\d+) files?$/i, '$1 个文件'],
     [/^(\\d+) results?$/i, '$1 个结果'],
     [/^(\\d+) errors?$/i, '$1 个错误'],
-    [/^(\\d+) warnings?$/i, '$1 个警告']
+    [/^(\\d+) warnings?$/i, '$1 个警告'],
+    [/^Allow$/i, '允许'],
+    [/^Deny$/i, '拒绝'],
+    [/^Ask$/i, '询问']
   ];
 
   const tiaoGuoBiaoQian = new Set(['SCRIPT', 'STYLE', 'TEXTAREA', 'INPUT', 'CODE', 'PRE']);
@@ -503,16 +506,31 @@ def 生成汉化脚本() -> str:
         .replaceAll("Select one of the three options", "请选择三种模式之一")
         .replaceAll(" and permissions can be further customized below.", "和权限可在下方继续自定义。")
         .replaceAll("智能体设置 and permissions can be further customized below.", "智能体设置和权限可在下方继续自定义。")
+        .replaceAll("Select one of the three options. 智能体设置和权限可在下方继续自定义。", "请选择三种模式之一。智能体设置和权限可在下方继续自定义。")
         .replaceAll("请选择三种模式之一. 智能体设置和权限可在下方继续自定义。", "请选择三种模式之一。智能体设置和权限可在下方继续自定义。")
         .replaceAll("拒绝 list", "拒绝列表")
         .replaceAll("允许 list", "允许列表")
         .replaceAll("This provides the 智能体 with the maximum ability to operate over long periods without intervention, but also has the highest risk of an 智能体 executing an unsafe terminal command.", "这让智能体具备最长时间自主运行的最大能力，但也带来最高风险，可能执行不安全的终端命令。")
         .replaceAll("Agent never asks for confirmation before executing terminal commands (except those in the 拒绝列表).", "智能体在执行终端命令前不会请求确认（拒绝列表中的命令除外）。")
+        .replaceAll("智能体 never asks for confirmation before executing terminal commands (except those in the 拒绝列表).", "智能体在执行终端命令前不会请求确认（拒绝列表中的命令除外）。")
         .replaceAll("Agent always asks for confirmation before executing terminal commands (except those in the 允许列表).", "智能体在执行终端命令前始终请求确认（允许列表中的命令除外）。")
+        .replaceAll("智能体 always asks for confirmation before executing terminal commands (except those in the 允许列表).", "智能体在执行终端命令前始终请求确认（允许列表中的命令除外）。")
         .replaceAll("Command automatically proceeds if the command runs inside the sandbox. Otherwise, it requests review.", "如果命令在沙盒内运行，则自动继续；否则请求审核。")
+        .replaceAll("终端 command automatically proceeds if the command runs inside the sandbox. Otherwise, it requests review.", "如果命令在沙盒内运行，则自动继续；否则请求审核。")
         .replaceAll("When enabled, 智能体 can use browser tools to open URL, read web pages, and interact with browser content. This allows the 智能体 access to important (and often critical) knowledge and methods of validation, but any browser integration does increase exposure to external malicious parties for security exploits.", "启用后，智能体可以使用浏览器工具打开 URL、读取网页并与浏览器内容交互。这让智能体能够访问重要且通常关键的知识和验证方法，但任何浏览器集成都可能增加暴露给外部恶意方进行安全利用的风险。")
         .replaceAll("When enabled, 智能体 can use browser tools to open URL, read web pages, and interact with browser content. This allows the 智能体 to leverage Google Search for realtime knowledge and methods of validation, but any browser integration does increase exposure to external malicious parties for security exploits.", "启用后，智能体可以使用浏览器工具打开 URL、读取网页并与浏览器内容交互。这让智能体能够利用 Google 搜索获取实时知识和验证方法，但任何浏览器集成都可能增加暴露给外部恶意方进行安全利用的风险。")
         .replaceAll("When enabled, '解释并修复' actions will continue in the current conversation instead of starting a new one.", "启用后，“解释并修复”操作会在当前对话中继续，而不是开启新对话。")
+        .replaceAll("智能体 never asks for review. This maximizes the autonomy of the 智能体, but also has the highest risk of the 智能体 operating over unsafe or injected Artifact content.", "智能体从不请求审核。这让智能体具备最大程度的自主权，但也带来针对不安全或被注入的产物内容进行操作的最高风险。")
+        .replaceAll("Agent never asks for review. This maximizes the autonomy of the agent, but also has the highest risk of the agent operating over unsafe or injected Artifact content.", "智能体从不请求审核。这让智能体具备最大程度的自主权，但也带来针对不安全或被注入的产物内容进行操作的最高风险。")
+        .replaceAll("智能体 always asks for review.", "智能体始终请求审核。")
+        .replaceAll("Agent always asks for review.", "智能体始终请求审核。")
+        .replaceAll("智能体 will always ask to review in strict mode.", "在严格模式下，智能体将始终请求审核。")
+        .replaceAll("Agent will always ask to review in strict mode.", "在严格模式下，智能体将始终请求审核。")
+        .replaceAll("智能体 cannot modify files outside of the workspace in strict mode.", "在严格模式下，智能体无法修改工作区之外的文件。")
+        .replaceAll("Agent cannot modify files outside of the workspace in strict mode.", "在严格模式下，智能体无法修改工作区之外的文件。")
+        .replaceAll('"始终继续" is enabled without sandbox protection. This is very dangerous and we do not recommend doing this.', '"始终继续" 在没有沙盒保护的情况下被启用。这非常危险，我们不建议这样做。')
+        .replaceAll("打开 智能体 on 重载", "重载时打开智能体面板")
+        .replaceAll("Open Agent on reload", "重载时打开智能体面板")
         .replaceAll("智能体's", "智能体的")
         .replaceAll("智能体 settings", "智能体设置")
         .replaceAll("智能体 panel", "智能体面板")
