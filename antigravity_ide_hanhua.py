@@ -587,7 +587,14 @@ def 生成汉化脚本() -> str:
   }}
 
   function keFanYiYuanSu(yuanSu) {{
-    if (!yuanSu || tiaoGuoBiaoQian.has(yuanSu.tagName)) return false;
+    if (!yuanSu) return false;
+    if (yuanSu.tagName === 'CODE') {{
+        const text = yuanSu.textContent || '';
+        if (text.includes("Select one of the three options") || text.includes("Select one of the three options.")) {{
+            return !yuanSu.closest(tiaoGuoXuanZeQi);
+        }}
+    }}
+    if (tiaoGuoBiaoQian.has(yuanSu.tagName)) return false;
     return !yuanSu.closest(tiaoGuoXuanZeQi);
   }}
 
