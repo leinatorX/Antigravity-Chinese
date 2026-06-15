@@ -529,6 +529,8 @@ def 生成汉化脚本() -> str:
         .replaceAll("智能体 cannot modify files outside of the workspace in strict mode.", "在严格模式下，智能体无法修改工作区之外的文件。")
         .replaceAll("Agent cannot modify files outside of the workspace in strict mode.", "在严格模式下，智能体无法修改工作区之外的文件。")
         .replaceAll('"始终继续" is enabled without sandbox protection. This is very dangerous and we do not recommend doing this.', '"始终继续" 在没有沙盒保护的情况下被启用。这非常危险，我们不建议这样做。')
+        .replaceAll("You currently don't have any MCP 服务器 installed. Add an MCP server above or add a custom one via the MCP Config.", "你目前没有安装任何 MCP 服务器。请在上方添加 MCP 服务器，或通过 MCP 配置添加自定义服务器。")
+        .replaceAll("You currently don't have any MCP servers installed. Add an MCP server above or add a custom one via the MCP Config.", "你目前没有安装任何 MCP 服务器。请在上方添加 MCP 服务器，或通过 MCP 配置添加自定义服务器。")
         .replaceAll("打开 智能体 on 重载", "重载时打开智能体面板")
         .replaceAll("Open Agent on reload", "重载时打开智能体面板")
         .replaceAll("智能体's", "智能体的")
