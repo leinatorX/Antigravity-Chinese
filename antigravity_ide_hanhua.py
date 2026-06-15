@@ -521,8 +521,8 @@ def 生成汉化脚本() -> str:
     }}
     let houChuLi = jieGuo || zhuTi;
     const zhengZeTiHuan = [
-        [/Select one of the three options\.?(?:\s*智能体设置和权限可在下方继续自定义。)?/gi, "请选择三种模式之一。智能体设置和权限可在下方继续自定义。"],
-        [/(?:智能体)?(?:设置)?(?:and\s*)?permissions can be further customized below\.?/gi, "和权限可在下方继续自定义。"],
+        [/Select\s+one\s+of\s+the\s+three\s+options\.?/gi, "请选择三种模式之一。"],
+        [/(?:智能体)?(?:设置)?(?:\s*and\s*)?permissions\s+can\s+be\s+further\s+customized\s+below\.?/gi, "智能体设置和权限可在下方继续自定义。"],
         [/Note that this may increase/gi, "请注意，这可能会增加"],
         [/tool usage\.?/gi, "的工具使用频率。"],
         [/never asks for confirmation before executing terminal commands \(except those in the/gi, "在执行终端命令前从不请求确认（除了位于"],
