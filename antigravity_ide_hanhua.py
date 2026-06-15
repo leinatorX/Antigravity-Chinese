@@ -18,7 +18,10 @@ import sys
 from pathlib import Path
 
 
-默认安装目录 = Path(r"C:\Users\hongl\AppData\Local\Programs\Antigravity IDE")
+if sys.platform == "darwin":
+    默认安装目录 = Path("/Applications/Antigravity IDE.app/Contents")
+else:
+    默认安装目录 = Path(r"C:\Users\hongl\AppData\Local\Programs\Antigravity IDE")
 注入标记 = "ANTIGRAVITY_ZH_CN_INJECTION"
 脚本文件名 = "antigravity_zh_cn.js"
 备份后缀 = ".agzh.bak"
@@ -34,7 +37,7 @@ def 计算校验值(文件路径: Path) -> str:
 
 
 def 定位文件(安装目录: Path) -> dict[str, Path]:
-    app目录 = 安装目录 / "resources" / "app"
+    app目录 = 安装目录 / ("Resources" if sys.platform == "darwin" else "resources") / "app"
     workbench目录 = app目录 / "out" / "vs" / "code" / "electron-browser" / "workbench"
     文件 = {
         "product": app目录 / "product.json",
