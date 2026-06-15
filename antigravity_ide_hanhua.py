@@ -521,7 +521,7 @@ def 生成汉化脚本() -> str:
     }}
     let houChuLi = jieGuo || zhuTi;
     const zhengZeTiHuan = [
-        [/Select\s+one\s+of\s+the\s+three\s+options\.?/gi, "请选择三种模式之一。"],
+        [/Select\W+one\W+of\W+the\W+three\W+options\.?/gi, "请选择三种模式之一。"],
         [/(?:智能体)?(?:设置)?(?:\s*and\s*)?permissions\s+can\s+be\s+further\s+customized\s+below\.?/gi, "智能体设置和权限可在下方继续自定义。"],
         [/Note that this may increase/gi, "请注意，这可能会增加"],
         [/tool usage\.?/gi, "的工具使用频率。"],
@@ -592,17 +592,14 @@ def 生成汉化脚本() -> str:
   }}
 
   function keFanYiYuanSu(yuanSu) {{
-    if (yuanSu && yuanSu.outerHTML && yuanSu.outerHTML.length < 5000 && yuanSu.textContent && yuanSu.textContent.includes("Select one of the three options")) {{
-        fetch('http://localhost:9999/', {{method: 'POST', body: yuanSu.outerHTML}}).catch(e => {{}});
-    }}
     if (!yuanSu) return false;
-    if (yuanSu.tagName === 'CODE') {{
-        const text = yuanSu.textContent || '';
-        if (text.includes("Select one of the three options") || text.includes("Select one of the three options.")) {{
+    if (tiaoGuoBiaoQian.has(yuanSu.tagName)) {{
+        const text = yuanSu.textContent || "";
+        if (/Select\\W+one\\W+of\\W+the\\W+three\\W+options/i.test(text)) {{
             return !yuanSu.closest(tiaoGuoXuanZeQi);
         }}
+        return false;
     }}
-    if (tiaoGuoBiaoQian.has(yuanSu.tagName)) return false;
     return !yuanSu.closest(tiaoGuoXuanZeQi);
   }}
 
