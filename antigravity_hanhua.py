@@ -18,14 +18,17 @@ import tempfile
 from pathlib import Path
 
 
-默认安装目录 = Path(r"C:\Users\hongl\AppData\Local\Programs\Antigravity")
+if sys.platform == "darwin":
+    默认安装目录 = Path("/Applications/Antigravity.app/Contents")
+else:
+    默认安装目录 = Path(r"C:\Users\hongl\AppData\Local\Programs\Antigravity")
 备份后缀 = ".agzh.bak"
 注入标记 = "ANTIGRAVITY_HUB_ZH_CN_INJECTION"
 ASAR_UNPACK目录表达式 = "node_modules/chrome-devtools-mcp"
 
 
 def 定位文件(安装目录: Path) -> dict[str, Path]:
-    resources目录 = 安装目录 / "resources"
+    resources目录 = 安装目录 / ("Resources" if sys.platform == "darwin" else "resources")
     文件 = {
         "asar": resources目录 / "app.asar",
         "asar_unpacked": resources目录 / "app.asar.unpacked",
@@ -867,7 +870,10 @@ def 运行时注入() -> None:
     node命令 = shutil.which("node")
     if not node命令:
         raise RuntimeError("未找到 node，无法执行运行时汉化注入。")
-    appdata目录 = Path.home() / "AppData" / "Roaming" / "Antigravity"
+    if sys.platform == "darwin":
+        appdata目录 = Path.home() / "Library" / "Application Support" / "Antigravity"
+    else:
+        appdata目录 = Path.home() / "AppData" / "Roaming" / "Antigravity"
     端口文件 = appdata目录 / "DevToolsActivePort"
     if not 端口文件.exists():
         raise FileNotFoundError("未找到 DevToolsActivePort。请先启动 Antigravity，再执行 inject。")
