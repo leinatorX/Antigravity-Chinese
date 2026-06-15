@@ -521,6 +521,8 @@ def 生成汉化脚本() -> str:
     }}
     let houChuLi = jieGuo || zhuTi;
     const zhengZeTiHuan = [
+        [/^Select one of the\s*$/gi, "请选择"],
+        [/^\s*options\.\s*(?:智能体)?(?:设置)?(?:\s*and\s*)?permissions\s+can\s+be\s+further\s+customized\s+below\.?/gi, "种安全模式。智能体设置和权限可在下方继续自定义。"],
         [/Select\W+one\W+of\W+the\W+three\W+options\.?/gi, "请选择三种模式之一。"],
         [/(?:智能体)?(?:设置)?(?:\s*and\s*)?permissions\s+can\s+be\s+further\s+customized\s+below\.?/gi, "智能体设置和权限可在下方继续自定义。"],
         [/Note that this may increase/gi, "请注意，这可能会增加"],
