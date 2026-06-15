@@ -543,6 +543,7 @@ def 生成汉化脚本() -> str:
         .replaceAll("Curated collection of agent skills for science.", "为科学研究精选的智能体技能集合。")
         .replaceAll("Prototype, build & run modern apps users love with Firebase's backend, AI, and operational infrastructure.", "使用 Firebase 的后端、AI 和运维基础设施，制作原型、构建并运行广受用户喜爱的现代应用。")
         .replaceAll("Reliable automation, in-depth debugging, and performance analysis in Chrome using Chrome DevTools and Puppeteer", "使用 Chrome DevTools 和 Puppeteer 在 Chrome 中实现可靠的自动化、深入调试和性能分析")
+        .replaceAll("Ask anything, @ to mention, / for actions", "有事请问，使用 @ 提及对象，使用 / 唤出操作")
         .replaceAll("打开 智能体 on 重载", "重载时打开智能体面板")
         .replaceAll("Open Agent on reload", "重载时打开智能体面板")
         .replaceAll("智能体's", "智能体的")
