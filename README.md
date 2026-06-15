@@ -9,6 +9,11 @@
 
 `Antigravity` 脚本会备份并重打包 `resources/app.asar`，静态替换安装向导、菜单、托盘和更新提示，并在 `preload.js` 中注入 DOM 汉化脚本，用于覆盖主窗口中由本地服务渲染的界面文本。
 
+## 效果预览
+
+![Antigravity IDE](images/AntigravityIDE.png)
+![Antigravity](images/Antigrvity.png)
+
 ## 当前定位
 
 - Antigravity 适配路径（Windows）：`C:\Users\hongl\AppData\Local\Programs\Antigravity`
