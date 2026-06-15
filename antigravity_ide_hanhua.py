@@ -415,6 +415,8 @@ def 生成汉化脚本() -> str:
         "Select one of the three options. 智能体设置和权限可在下方继续自定义。": "请选择三种模式之一。智能体设置和权限可在下方继续自定义。",
         "and permissions can be further customized below.": "和权限可在下方继续自定义。",
         "Agent settings and permissions can be further customized below.": "智能体设置和权限可在下方继续自定义。",
+        "three": "三",
+        "two": "两",
         "settings and permissions can be further customized below.": "设置和权限可在下方继续自定义。",
         "Select one of the three options. 智能体设置 and permissions can be further customized below.": "请选择三种模式之一。智能体设置和权限可在下方继续自定义。",
         "Specifies 智能体的 behavior when asking for review on artifacts, which are documents it creates to enable a richer conversation experience.": "指定智能体在请求审核产物时的行为。产物是智能体创建的文档，用于提供更丰富的对话体验。",
