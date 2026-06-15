@@ -549,7 +549,9 @@ def 生成汉化脚本() -> str:
         [/Learn more\.?/gi, "了解更多。"],
         [/(?:规则)?\s*help guide the behavior of\s*(?:智能体)?\.?/gi, "有助于指导智能体的行为。"],
         [/(?:工作流)?\s*are saved prompts that\s*(?:智能体)?\s*can follow\.?/gi, "是智能体可以遵循的已保存提示。"],
-        [/To trigger a workflow, type "\/" in\s*(?:智能体)?\.?/gi, "要在智能体中触发工作流，请键入“/”。"]
+        [/To trigger a workflow, type "\/" in\s*(?:智能体)?\.?/gi, "要在智能体中触发工作流，请键入“/”。"],
+        [/^You have used some of your 5-hour limit, it will fully refresh in (.*?)\.?$/gi, "你已使用部分 5 小时额度，将在 $1 后完全刷新。"],
+        [/^You have used some of your weekly limit, it will fully refresh in (.*?)\.?$/gi, "你已使用部分每周额度，将在 $1 后完全刷新。"]
     ];
     for (const [zz, th] of zhengZeTiHuan) {{
         houChuLi = houChuLi.replace(zz, th);

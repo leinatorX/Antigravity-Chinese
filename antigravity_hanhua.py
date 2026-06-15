@@ -211,9 +211,7 @@ def 生成页面汉化代码() -> str:
         "Within each group, models share a weekly limit and a 5-hour limit. Quota is consumed proportionally to the cost of the tokens. Thus, limits will last longer with shorter tasks or using more cost-effective models. The 5-hour limit smooths out aggregate demand to fairly distribute global capacity across all users, while your weekly limit is tied directly to your individual tier.": "每组模型共享每周限制和 5 小时限制。配额会按 Token 成本比例消耗。因此，任务越短或使用成本更低的模型，额度可持续越久。5 小时限制用于平滑整体需求，公平分配全球容量；每周限制则与你的个人套餐等级直接相关。",
         "Five Hour Limit": "五小时限制",
         "Weekly Limit": "每周限制",
-        "You have used some of your 5-hour limit, it will fully refresh in 4 hours, 54 minutes.": "你已使用部分 5 小时额度，将在 4 小时 54 分钟后完全刷新。",
-        "You have used some of your weekly limit, it will fully refresh in 2 days, 15 hours.": "你已使用部分每周额度，将在 2 天 15 小时后完全刷新。",
-        "You have used some of your weekly limit, it will fully refresh in 3 days, 15 hours.": "你已使用部分每周额度，将在 3 天 15 小时后完全刷新。",
+
         "Refresh quota and credits data": "刷新配额和 credits 数据",
         "Agent security mode": "智能体安全模式",
         "Select one of the three options. Agent settings and permissions can be further customized below.": "请选择三种模式之一。智能体设置和权限可在下方继续自定义。",
@@ -357,8 +355,8 @@ def 生成页面汉化代码() -> str:
         [r"^(\d+)\s+archived conversations?$", r"$1 个归档对话"],
         [r"^Rules:\s*([\d,]+)\s+tokens$", r"规则：$1 个 Token"],
         [r"^Send feedback as (.+)$", r"发送反馈，账号：$1"],
-        [r"^You have used some of your 5-hour limit, it will fully refresh in (\d+) hours?, (\d+) minutes?\.?$", r"你已使用部分 5 小时额度，将在 $1 小时 $2 分钟后完全刷新。"],
-        [r"^You have used some of your weekly limit, it will fully refresh in (\d+) days?, (\d+) hours?\.?$", r"你已使用部分每周额度，将在 $1 天 $2 小时后完全刷新。"],
+        [r"^You have used some of your 5-hour limit, it will fully refresh in (.*?)\.?$", r"你已使用部分 5 小时额度，将在 $1 后完全刷新。"],
+        [r"^You have used some of your weekly limit, it will fully refresh in (.*?)\.?$", r"你已使用部分每周额度，将在 $1 后完全刷新。"],
     ]
     模板 = r"""
 (() => {
@@ -395,6 +393,9 @@ def 生成页面汉化代码() -> str:
       }}
     }}
     jieGuo = jieGuo
+      .replace(/(\d+)\s*days?/g, '$1 天')
+      .replace(/(\d+)\s*hours?/g, '$1 小时')
+      .replace(/(\d+)\s*minutes?/g, '$1 分钟')
       .replaceAll('编辑or', '编辑器')
       .replaceAll('编辑ing', 'Editing')
       .replaceAll('了解更多 about', '了解更多')
