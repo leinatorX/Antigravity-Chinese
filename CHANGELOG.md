@@ -1,6 +1,10 @@
 # 更新日志 (Changelog)
 
 ## [2026-06-16]
+- **重构**：将脚本重命名为更规范的专业命名风格。
+  - `antigravity_hanhua.py` 重命名为 `antigravity_zh_patch.py`。
+  - `antigravity_ide_hanhua.py` 重命名为 `antigravity_ide_zh_patch.py`。
+  - 同步更新了脚本内部的自述注释与 `README.md` 中的命令引用。
 - **优化**：移除汉化脚本中的硬编码 Windows 用户路径兜底。
   - 改为通过 `%LOCALAPPDATA%` 环境变量动态匹配当前运行用户的程序安装路径，从而原生支持多用户与任意开发环境。
   - 更新了相关 `README.md` 中的默认路径说明。

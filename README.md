@@ -2,8 +2,8 @@
 
 这是一个给本机 Antigravity 与 Antigravity IDE 使用的轻量汉化补丁工具。两个程序的安装结构不同，因此分别提供两个脚本。
 
-- `antigravity_hanhua.py`：用于 `Antigravity` 外壳应用。
-- `antigravity_ide_hanhua.py`：用于 `Antigravity IDE` 编辑器应用。
+- `antigravity_zh_patch.py`：用于 `Antigravity` 外壳应用。
+- `antigravity_ide_zh_patch.py`：用于 `Antigravity IDE` 编辑器应用。
 
 `Antigravity IDE` 脚本采用本地注入方式，在 `workbench.html` 和 `workbench-jetski-agent.html` 中加载 `antigravity_zh_cn.js`，通过 DOM 文本替换汉化常见菜单、命令、设置和 Antigravity 专属入口。
 
@@ -32,37 +32,37 @@
 查看状态：
 
 ```powershell
-python .\antigravity_hanhua.py status
+python .\antigravity_zh_patch.py status
 ```
 
 安装汉化：
 
 ```powershell
-python .\antigravity_hanhua.py install
+python .\antigravity_zh_patch.py install
 ```
 
 恢复原始文件：
 
 ```powershell
-python .\antigravity_hanhua.py restore
+python .\antigravity_zh_patch.py restore
 ```
 
 自检：
 
 ```powershell
-python .\antigravity_hanhua.py check
+python .\antigravity_zh_patch.py check
 ```
 
 对当前已打开窗口运行时注入：
 
 ```powershell
-python .\antigravity_hanhua.py inject
+python .\antigravity_zh_patch.py inject
 ```
 
 如果安装路径不同：
 
 ```powershell
-python .\antigravity_hanhua.py status --install-dir "D:\Tools\Antigravity"
+python .\antigravity_zh_patch.py status --install-dir "D:\Tools\Antigravity"
 ```
 
 ### Antigravity IDE
@@ -70,25 +70,25 @@ python .\antigravity_hanhua.py status --install-dir "D:\Tools\Antigravity"
 查看状态：
 
 ```powershell
-python .\antigravity_ide_hanhua.py status
+python .\antigravity_ide_zh_patch.py status
 ```
 
 安装汉化：
 
 ```powershell
-python .\antigravity_ide_hanhua.py install
+python .\antigravity_ide_zh_patch.py install
 ```
 
 恢复原始文件：
 
 ```powershell
-python .\antigravity_ide_hanhua.py restore
+python .\antigravity_ide_zh_patch.py restore
 ```
 
 如果安装路径不同：
 
 ```powershell
-python .\antigravity_ide_hanhua.py status --install-dir "D:\Tools\Antigravity IDE"
+python .\antigravity_ide_zh_patch.py status --install-dir "D:\Tools\Antigravity IDE"
 ```
 
 ## 工作原理

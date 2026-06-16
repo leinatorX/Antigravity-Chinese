@@ -2,9 +2,9 @@
 """Antigravity IDE 汉化补丁工具。
 
 用法：
-  python antigravity_hanhua.py status
-  python antigravity_hanhua.py install
-  python antigravity_hanhua.py restore
+  python antigravity_ide_zh_patch.py status
+  python antigravity_ide_zh_patch.py install
+  python antigravity_ide_zh_patch.py restore
 """
 
 from __future__ import annotations
