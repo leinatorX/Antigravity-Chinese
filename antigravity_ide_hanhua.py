@@ -21,7 +21,8 @@ from pathlib import Path
 if sys.platform == "darwin":
     默认安装目录 = Path("/Applications/Antigravity IDE.app/Contents")
 else:
-    默认安装目录 = Path(r"C:\Users\hongl\AppData\Local\Programs\Antigravity IDE")
+    import os
+    默认安装目录 = Path(os.environ["LOCALAPPDATA"]) / "Programs" / "Antigravity IDE"
 注入标记 = "ANTIGRAVITY_ZH_CN_INJECTION"
 脚本文件名 = "antigravity_zh_cn.js"
 备份后缀 = ".agzh.bak"

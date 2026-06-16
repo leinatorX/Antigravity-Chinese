@@ -16,10 +16,10 @@
 
 ## 当前定位
 
-- Antigravity 适配路径（Windows）：`C:\Users\hongl\AppData\Local\Programs\Antigravity`
+- Antigravity 适配路径（Windows）：`%LOCALAPPDATA%\Programs\Antigravity`
 - Antigravity 适配路径（macOS）：`/Applications/Antigravity.app/Contents`
 - Antigravity 已确认版本：`2.1.4`
-- Antigravity IDE 适配路径（Windows）：`C:\Users\hongl\AppData\Local\Programs\Antigravity IDE`
+- Antigravity IDE 适配路径（Windows）：`%LOCALAPPDATA%\Programs\Antigravity IDE`
 - Antigravity IDE 适配路径（macOS）：`/Applications/Antigravity IDE.app/Contents`
 - 已确认版本：Antigravity IDE `2.0.4`
 - 已确认基线：VS Code `1.107.0`

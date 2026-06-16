@@ -21,7 +21,8 @@ from pathlib import Path
 if sys.platform == "darwin":
     默认安装目录 = Path("/Applications/Antigravity.app/Contents")
 else:
-    默认安装目录 = Path(r"C:\Users\hongl\AppData\Local\Programs\Antigravity")
+    import os
+    默认安装目录 = Path(os.environ["LOCALAPPDATA"]) / "Programs" / "Antigravity"
 备份后缀 = ".agzh.bak"
 注入标记 = "ANTIGRAVITY_HUB_ZH_CN_INJECTION"
 ASAR_UNPACK目录表达式 = "node_modules/chrome-devtools-mcp"
